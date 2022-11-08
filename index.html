@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="/assets/js/app.js" type="module"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Noodle Render</title>
+</head>
+<body>
+    <header>
+        <label>
+            <input type="checkbox" href="#" id="darkmodeSwitch">
+            <svg id="darkmode" width="30" height="30" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="sun" d="M55 27.5C55 42.6878 42.6878 55 27.5 55C12.3122 55 0 42.6878 0 27.5C0 12.3122 12.3122 0 27.5 0C42.6878 0 55 12.3122 55 27.5Z" fill="#FBC539"/>
+                </svg>
+        </label>
+        
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+    <main>
+        <section id="heroSection">
+            
+            <div id="heroImage"></div>
+            <form id="searchForm">
+                <input type="text" name="searchField" id="searchField">
+                <button id="fetcher">Search</button>
+            </form>
+            <ul id="suggestions">
+                <li><span class="word">3D Render</span></li>
+                <li><span class="word">Space</span></li>
+                <li><span class="word">Cats</span></li>
+                <li><span class="word">Abstract</span></li>
+                <li><span class="word">Minimalism</span></li>
+                <li><span class="word">Space Cats</span></li>
+            </ul>
+            <ul id="gallery">
+    
+            </ul>
+        </section>
+        <dialog class="modal" id="modal">
+            <span id="likes" class="imgInfo"></span>
+            <span id="views" class="imgInfo"></span>
+            <span id="downloads" class="imgInfo"></span>
+            <a id="username" class="imgInfo" href="" target="_blank"></a>
+        </dialog>
+    </main>
+    <footer>
+        <ul id="socials">
+            <a href="#"><li class="icon" id="facebook"></li></a>
+            <a href="#"><li class="icon" id="linkedin"></li></a>
+            <a href="#"><li class="icon" id="instagram"></li></a>
+            <span>Copyright © 2022 Noodle Gang</span>
+        </ul>
+        
+        <style id="customstyles"  type="text/css">
+        </style>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/css/normalize.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/assets/js/contact.js" type="module"></script>
+        <title>Contact</title>
+    </head>
+<body>
+    <header>
+        <label>
+            <input type="checkbox" href="#" id="darkmodeSwitch">
+            <svg id="darkmode" width="30" height="30" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="sun" d="M55 27.5C55 42.6878 42.6878 55 27.5 55C12.3122 55 0 42.6878 0 27.5C0 12.3122 12.3122 0 27.5 0C42.6878 0 55 12.3122 55 27.5Z" fill="#FBC539"/>
+                </svg>
+        </label>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+    <main>
+        <section id="contactSection">
+            <h2>Stay up to date!</h2>
+            <p>Get the best news every week</p>
+        <form id="contactForm" novalidate>
+            <span id="message"></span>
+            <div>
+                <input type="text" name="name_field" id="nameField" placeholder=" " required class="input" data-message=" is a great name" pattern="^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)">
+                <label for="name_field">first and last name</label>
+            </div>
+            <div>
+                <input type="email" name="email_field" id="emailField" placeholder=" " pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required class="input" data-message=" sounds about right">
+                <label for="email_field">email</label>
+            </div>
+            <button>Join</button>
+            <p>We only send updates on our products, release, launches. This includes our partner network as well. That's like a gazillion emails right there.</p>
+        </form>
+    </section>
+    </main>
+</body>
+</html>
