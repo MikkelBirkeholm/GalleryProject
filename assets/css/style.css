@@ -8,6 +8,10 @@
     --backdrop-color: #fa0000;
 }
 
+*, *::after, *::before {
+    box-sizing: border-box;
+ }
+
 [data-theme="light"] {
     --color-bg: #ffffff;
     --color-bg-alt: #ffe7e7;
@@ -15,8 +19,8 @@
     --color-detail: #f098d1;
     --color-text: #99abcb;
     --bg-image: url(/assets/img/bg-lys.svg);
-    --logo-full: url(/assets/img/logo-icon-left-black.png);
-    --logo-main: url(/assets/img/logo-icon-top-black.png);
+    --logo-full: url(/assets/img/logo-icon-black.png);
+    --logo-main: url(/assets/img/logo-icon-black.png);
     --brightness: brightness(0);
 }
 
@@ -27,8 +31,8 @@
     --color-detail: #7cc59e;
     --color-text: #ffca9d;
     --bg-image: url(/assets/img/bg-dark.svg);
-    --logo-full: url(/assets/img/logo-icon-left-green.png);
-    --logo-main: url(/assets/img/logo-icon-top-green.png);
+    --logo-full: url(/assets/img/logo-icon-green.png);
+    --logo-main: url(/assets/img/logo-icon-green.png);
     --brightness: brightness(1) invert(1);
 }
 
@@ -63,6 +67,7 @@ section {
 h1, h2, h3, h4 {
     font-weight: 800;
     color: var(--color-heading);
+    margin: 0;
 }
 
 a, header li {
@@ -131,6 +136,7 @@ input{
     width: 100%;
     justify-content: center;
     align-content: center;
+    margin-top: 1em;
 }
 
 #searchField {
@@ -151,7 +157,6 @@ input{
     flex-direction: column;
     align-items: center;
     height: 100%;
-    gap: 1em;
 }
 
 #contactSection {
@@ -172,6 +177,9 @@ button {
     padding: 0.5em 1em;
     box-shadow: var(--box-shadow);
     cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 #suggestions {
@@ -204,33 +212,41 @@ button {
 
 #gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     place-items: center;
-    gap: 1em;
     pointer-events: none;
     width: 100%;
-    height: fit-content;
+    gap: 1vw;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-#gallery li {
-    transition: 600ms;
-    cursor: pointer;
+#gallery::-webkit-scrollbar {
+    display: none;
   }
+
+#gallery h1 {
+    width: 100%;
+    text-align: center;
+  }
+
 
 #gallery:has(li:hover) li:not(:hover) {
     opacity: 0.8;
-    filter: brightness(0.8);
+    filter: brightness(0.7) grayscale(0.8);
     scale: 0.95;
   }
 
 .slide {
-    height: 9em;
-    width: 16em;
+    transition: filter 500ms, scale 500ms;
+    width: 100%;
+    height: 130px;
+    cursor: pointer;
     background-image: url(/assets/img/placeholder.jpg);
     background-position: center;
     background-size: cover;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-shadow: var(--box-shadow);
     border-radius: 10px;
     opacity: 0;
 }
@@ -254,8 +270,8 @@ button {
 
 .modal {
     position: absolute;
-    height: 70vh;
-    width: 70vw;
+    height: clamp(2ch, 800px, 70vh);
+    width: clamp(2ch, 1200px, 90vw);
     border: none;
     background-position: center;
     background-size: cover;
@@ -351,6 +367,12 @@ input:not(:placeholder-shown) ~ label {
     padding: 2em;
     border-radius: 10px;
     width: clamp(5ch, 600px, 90vw);
+}
+
+@media screen and (max-width: 600px) {
+    .imgInfo {
+        display: none;
+    }
 }
 
 

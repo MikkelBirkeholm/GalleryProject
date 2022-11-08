@@ -61,7 +61,7 @@ function slideModal() {
         views.innerText = 'views: ' + i.getAttribute('data-views')
         username.innerText = 'By: ' + i.getAttribute('data-username')
         username.href = i.getAttribute('data-link')
-        customStyles.innerText = `dialog::backdrop{background: ${backdropColor}80; backdrop-filter: blur(10px);`;
+        customStyles.innerText = `dialog::backdrop{background: ${backdropColor}70; backdrop-filter: blur(10px);`; //indsætter custom styling i footeren for ::backdrop pseudo element
         modal.style.backgroundImage = `url(${url})`;
         modal.classList.toggle('show');
         modal.showModal();
@@ -69,10 +69,12 @@ function slideModal() {
       setTimeout(() => {
         //animer billeder ind 
         anime({
-            targets: '#gallery .slide',
+            targets: '.slide',
             translateY: ['5em', 0],
             opacity: 1,
-            delay: anime.stagger(100)
+            duration: 650,
+            delay: anime.stagger(100),
+            easing: 'easeOutExpo'
         })
     }, 500)
     }
@@ -84,7 +86,7 @@ modal.addEventListener('click', () => {
     modal.close();
   });
 
-// loop over suggestions og indsæt tekst i input ved tryk
+// indsæt tekst i input ved tryk på suggestion
 for (let s of suggestions) {
     s.onclick = function() {
         input.value = s.innerText
@@ -97,7 +99,7 @@ function fetchImages() {
     let searchTerm = input.value
     let fetchURL =
 `https://api.unsplash.com/photos/random?query=${searchTerm}&orientation=landscape&count=9&client_id=TTM26pOT0bZAok1xYZzS_GwHpKXRUc7Ni-GN2r7JGLc`
-if (!searchTerm) {
+if (!searchTerm || searchTerm === 'What would you like to search for?') {
     input.value = 'What would you like to search for?'
     return
 }
@@ -106,7 +108,7 @@ if (!searchTerm) {
       return res.json();
     })
     .then(data => {
-      for (let [i, image] of data.entries()) {
+      for (let image of data) {
         let li = document.createElement('li');
         li.className = 'slide';
         li.style.backgroundImage = `url(${image.urls.regular})`;
@@ -122,7 +124,8 @@ if (!searchTerm) {
       slideModal();
     })
     .catch((error) => {
-        gallery.innerHTML = `<h1>Whoops. Looks like we ran out of requests. Check back in an hour.</h1>`
+        gallery.innerHTML = `<h1>Whoops. There was an issue. Maybe we ran out of requests. Check back in an hour.</h1>`
+        console.log(error)
       });
     searchAnimation.play()
 };
